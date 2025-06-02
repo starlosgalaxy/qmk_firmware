@@ -1,6 +1,24 @@
 #include QMK_KEYBOARD_H
 #include "version.h"
 
+// Configure the global tapping term (default: 200ms)
+#define TAPPING_TERM 200
+
+// Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
+#define QUICK_TAP_TERM 0
+
+// Left-hand home row mods
+#define HOME_A LCTL_T(KC_A)
+#define HOME_S LALT_T(KC_S)
+#define HOME_D LGUI_T(KC_D)
+#define HOME_F LSFT_T(KC_F)
+
+// Right-hand home row mods
+#define HOME_J RSFT_T(KC_J)
+#define HOME_K RGUI_T(KC_K)
+#define HOME_L LALT_T(KC_L)
+#define HOME_SCLN RCTL_T(KC_SCLN)
+
 enum custom_layers {
     BASE,   // default layer
     SYMB,   // symbols
@@ -19,41 +37,41 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,--------------------------------------------------.           ,--------------------------------------------------.
  * |        |   1  |   2  |   3  |   4  |   5  |      |           |      |   6  |   7  |   8  |   9  |   0  |        |
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
- * | Tab    |   Q  |   W  |   E  |   R  |   T  |  L2  |           |  L2  |   Y  |   U  |   I  |   O  |   P  |   \    |
+ * | Tab    |   Q  |   W  |   E  |   R  |   T  | M0(2)|           | M0(2)|   Y  |   U  |   I  |   O  |   P  |   \    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * | LCtrl  |   A  |   S  |   D  |   F  |   G  |------|           |------|   H  |   J  |   K  |   L  |;/L2  |'/LGui  |
+ * | LCtrl  |HOME_A|HOME_S|HOME_D|HOME_F|   G  |------|           |------|   H  |HOME_J|HOME_K|HOME_L|H_SCLN|  '   |
  * |--------+------+------+------+------+------| MO(1)|           | MO(1)|------+------+------+------+------+--------|
- * | LShift |Z/Ctrl|   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |//Ctrl| RAlt   |
+ * | LShift |   Z  |   X  |   C  |   V  |   B  |      |           |      |   N  |   M  |   ,  |   .  |  /   | RAlt   |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
  *   |      |      |      |      |      |                                       |      |      |      |      |      |
  *   `----------------------------------'                                       `----------------------------------'
  *                                        ,-------------.       ,-------------.
- *                                        | LGui |      |       | QK_GESC |      |
+ *                                        | LGui |      |       |      |QK_GESC|
  *                                 ,------|------|------|       |------+------+------.
- *                                 |      |      |      |       |      |      |      |
- *                                 |Enter |BkSp  | MO(3)|       | MO(3)|BkSp  |Space |
- *                                 |      |      |      |       |      |      |      |
+ *                                 |      |      | MO(3)|       | MO(3)|      |      |
+ *                                 |      |      |------|       |------|      |      |
+ *                                 | BkSp |      | MO(3)|       | MO(3)| Enter|  Space|
  *                                 `--------------------'       `--------------------'
  */
 [BASE] = LAYOUT_ergodox(
     // left hand
     KC_NO,   KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_NO,
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    MO(2),
-    KC_LCTL, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,
-    KC_LSFT, LCTL_T(KC_Z), KC_X, KC_C,  KC_V,    KC_B,    MO(1),
+    KC_LCTL,HOME_A, HOME_S,  HOME_D,  HOME_F,    KC_G,
+    KC_LSFT, KC_Z, KC_X, KC_C,  KC_V,    KC_B,    MO(1),
     KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
                                         KC_LGUI,  KC_NO,
-                                                 KC_NO,
-                                KC_ENT, KC_BSPC, MO(3),
+                                                KC_NO,
+                                KC_BSPC,  KC_NO, MO(3),
     // right hand
     KC_NO,   KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_NO,
     MO(2),   KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSLS,
-             KC_H,    KC_J,    KC_K,    KC_L,    LT(2,KC_SCLN), LGUI_T(KC_QUOT),
-    MO(1),   KC_N,    KC_M,    KC_COMM, KC_DOT,  LCTL_T(KC_SLSH), KC_RALT,
+             KC_H,  HOME_J,  HOME_K,  HOME_L,HOME_SCLN,   KC_QUOT,
+    MO(1),   KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RALT,
                       KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,
-    QK_GESC, KC_NO,
+    KC_NO, QK_GESC,
     KC_NO,
-    MO(3),   KC_BSPC, KC_SPC
+    MO(3),   KC_ENT, KC_SPC
 ),
 
 /* Keymap 1: Symbol Layer
@@ -73,7 +91,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                        |      |      |       |      |      |
  *                                 ,------|------|------|       |------+------+------.
  *                                 |      |      |      |       |      |      |      |
- *                                 |      |      |      |       |      |      |      |
+ *                                 |      |      |------|       |------|      |      |
  *                                 |      |      |      |       |      |      |      |
  *                                 `--------------------'       `--------------------'
  */
@@ -115,7 +133,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                        |      |      |       |      |      |
  *                                 ,------|------|------|       |------+------+------.
  *                                 |      |      |      |       |      |      |      |
- *                                 |      |      |      |       |      |      |      |
+ *                                 |      |      |------|       |------|      |      |
  *                                 |      |      |      |       |      |      |      |
  *                                 `--------------------'       `--------------------'
  */
@@ -157,8 +175,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                        |      |      |       |      |      |
  *                                 ,------|------|------|       |------+------+------.
  *                                 |      |      |      |       |      |      |      |
+ *                                 |      |      |------|       |------|      |      |
  *                                 |      |      |TRNS  |       |TRNS  |      |      |
- *                                 |      |      |      |       |      |      |      |
  *                                 `--------------------'       `--------------------'
  */
 [RESET] = LAYOUT_ergodox(
