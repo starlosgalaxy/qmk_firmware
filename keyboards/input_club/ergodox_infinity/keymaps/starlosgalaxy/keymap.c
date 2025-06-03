@@ -13,6 +13,12 @@
 #define HOME_L LALT_T(KC_L)
 #define HOME_SCLN RCTL_T(KC_SCLN)
 
+// Left Hand Home row mods for Smbol layer
+#define HOME_1 LCTL_T(KC_1)
+#define HOME_2 LALT_T(KC_2)
+#define HOME_3 LGUI_T(KC_3)
+#define HOME_4 LSFT_T(KC_4)
+
 enum custom_layers {
     BASE,   // default layer
     SYMB,   // symbols
@@ -75,7 +81,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+------+------+------+------+-------------|           |------+------+------+------+------+------+--------|
  * |        |   !  |   @  |   #  |   $  |   %  |      |           |      |   ^  |   &  |   *  |   (  |   )  |   \     |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
- * |        |   1  |   2  |   3  |   4  |   5  |------|           |------|   -  |   =  |   `  |   [  |   ]  |   |    |
+ * |        |HOME_1|HOME_2|HOME_3|HOME_4|   5  |------|           |------|   -  |   =  |   `  |   [  |   ]  |   |    |
  * |--------+------+------+------+------+------|      |           |      |------+------+------+------+------+--------|
  * |        |   6  |   7  |   8  |   9  |   0  |      |           |      |   _  |   +  |   ~  |   {  |   }  |        |
  * `--------+------+------+------+------+-------------'           `-------------+------+------+------+------+--------'
@@ -93,7 +99,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // left hand
     KC_NO,   KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS,   KC_NO,
     KC_TRNS, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC, KC_TRNS,
-    KC_TRNS,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,
+    KC_TRNS,  HOME_1,  HOME_2,  HOME_3,  HOME_4,    KC_5,
     KC_TRNS,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_TRNS,
     KC_NO,     KC_NO,   KC_NO,   KC_NO,   KC_NO,
                                         KC_TRNS,  KC_TRNS,
