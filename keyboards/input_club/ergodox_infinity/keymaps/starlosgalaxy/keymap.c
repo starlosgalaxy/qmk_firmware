@@ -6,6 +6,11 @@
 #define HOME_S LALT_T(KC_S)
 #define HOME_D LGUI_T(KC_D)
 #define HOME_F LSFT_T(KC_F)
+// Left Hand Home row mods for Smbol layer
+#define HOME_1 LCTL_T(KC_1)
+#define HOME_2 LALT_T(KC_2)
+#define HOME_3 LGUI_T(KC_3)
+#define HOME_4 LSFT_T(KC_4)
 
 // Right-hand home row mods
 #define HOME_J RSFT_T(KC_J)
@@ -13,11 +18,7 @@
 #define HOME_L LALT_T(KC_L)
 #define HOME_SCLN RCTL_T(KC_SCLN)
 
-// Left Hand Home row mods for Smbol layer
-#define HOME_1 LCTL_T(KC_1)
-#define HOME_2 LALT_T(KC_2)
-#define HOME_3 LGUI_T(KC_3)
-#define HOME_4 LSFT_T(KC_4)
+
 
 enum custom_layers {
     BASE,   // default layer
