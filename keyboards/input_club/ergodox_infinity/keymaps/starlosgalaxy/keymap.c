@@ -1,12 +1,6 @@
 #include QMK_KEYBOARD_H
 #include "version.h"
 
-// Configure the global tapping term (default: 200ms)
-#define TAPPING_TERM 200
-
-// Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
-#define QUICK_TAP_TERM 0
-
 // Left-hand home row mods
 #define HOME_A LCTL_T(KC_A)
 #define HOME_S LALT_T(KC_S)
@@ -59,9 +53,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     QK_GESC,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    MO(2),
      KC_TAB,HOME_A,  HOME_S,  HOME_D,  HOME_F,    KC_G,
     KC_LBRC,  KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    MO(1),
-      KN_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,
+      KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,
                                          MO(1),    MO(2),
-                                                   KN_NO,
+                                                   KC_NO,
                                 KC_BSPC,  KC_ESC,  MO(3),
     // right hand
     KC_NO,    KC_6,  KC_7,   KC_8,  KC_9,      KC_0,    KC_NO,
@@ -70,7 +64,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     MO(1),    KC_N,  KC_M,KC_COMM, KC_DOT,  KC_SLSH,  KC_RBRC,
                     KC_NO,  KC_NO,  KC_NO,    KC_NO,    KC_NO,
     MO(2),    MO(1),
-    KN_NO,
+    KC_NO,
     MO(3),   KC_ENT,  KC_SPC
 ),
 
