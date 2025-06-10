@@ -1,0 +1,1 @@
+ST7565_ENABLE = yes

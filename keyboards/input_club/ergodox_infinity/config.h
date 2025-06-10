@@ -29,6 +29,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
 #define QUICK_TAP_TERM 0 // starlosgalaxy
 #define EE_HANDS // starlosgalaxy
+#define SPLIT_LAYER_STATE_ENABLE // starlosgalaxy
 
 /* key combination for command */
 #define IS_COMMAND() ( \
