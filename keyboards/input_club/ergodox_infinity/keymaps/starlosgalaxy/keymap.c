@@ -247,10 +247,18 @@ void st7565_task_user(void) {
             st7565_write_P(PSTR("Base\n"), false);
             break;
         case SYMB:
-            st7565_write_P(PSTR("Symbol\n"), false);
+            if (is_keyboard_left()) {
+                st7565_write_P(PSTR("Number\n"), false);
+            } else {
+                st7565_write_P(PSTR("Symbols\n"), false);
+            }
             break;
         case MDIA:
-            st7565_write_P(PSTR("Media\n"), false);
+            if (is_keyboard_left()) {
+                st7565_write_P(PSTR("Media\n"), false);
+            } else {
+                st7565_write_P(PSTR("Navigation\n"), false);
+            }
             break;
         case RESET:
             st7565_write_P(PSTR("Reset\n"), false);
