@@ -55,5 +55,6 @@
         }
     ],
     "editor.formatOnSave": false,
-    "workbench.colorTheme": "Winter is Coming (Dark Blue)"
+    "workbench.colorTheme": "Winter is Coming (Dark Blue)",
+    "cmake.sourceDirectory": "/Users/starlos/Development/qmk_firmware/lib/pico-sdk/test"
 }
