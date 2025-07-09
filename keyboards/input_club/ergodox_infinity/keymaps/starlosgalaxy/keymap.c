@@ -6,7 +6,7 @@
 #define HOME_S LALT_T(KC_S)
 #define HOME_D LGUI_T(KC_D)
 #define HOME_F LSFT_T(KC_F)
-// Left Hand Home row mods for Smbol layer
+// Left Hand Home row mods for Symbol layer
 #define HOME_1 LCTL_T(KC_1)
 #define HOME_2 LALT_T(KC_2)
 #define HOME_3 LGUI_T(KC_3)

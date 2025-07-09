@@ -25,11 +25,14 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
 // Configure the global tapping term (default: 200ms)
-#define TAPPING_TERM 250 // starlosgalaxy
+#define TAPPING_TERM 200 // starlosgalaxy
 // Enable rapid switch from tap to hold, disables double tap hold auto-repeat.
 #define QUICK_TAP_TERM 0 // starlosgalaxy
 #define EE_HANDS // starlosgalaxy
 #define SPLIT_LAYER_STATE_ENABLE // starlosgalaxy
+
+#define SPLIT_USB_TIMEOUT 20000 // starlosgalaxy
+#define SPLIT_USB_TIMEOUT_POLL 10 // starlosgalaxy
 
 /* key combination for command */
 #define IS_COMMAND() ( \
